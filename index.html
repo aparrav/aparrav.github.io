@@ -100,7 +100,7 @@
     .hero .pitch {
       font-size: 16.5px;
       color: #94A3B8;
-      max-width: 62ch;
+      max-width: 88ch;
       margin-bottom: 32px
     }
 
@@ -172,11 +172,10 @@
 
     p {
       margin-bottom: 16px;
-      max-width: 70ch;
+      max-width: 84ch;
       text-align: justify;
       text-justify: inter-word;
-      /* Justificado SIN partir palabras: el navegador reparte el espacio
-         entre palabras en lugar de cortarlas con guion. */
+      /* Justificado SIN partir palabras: hyphens auto cortaría "Data Fac-tory" */
       -webkit-hyphens: none;
       hyphens: none;
       overflow-wrap: normal;
@@ -513,13 +512,13 @@
       color: #64748B;
     }
 
-    @media(max-width:620px) {
+    @media(max-width:700px) {
       .hero {
         padding: 60px 0 52px
       }
 
       .hero h1 {
-        font-size: 33px
+        font-size: 48px
       }
 
       section {
@@ -542,10 +541,15 @@
       <h1>Arnoldo Parra Villagrán</h1>
       <p class="titular">Ingeniero de Datos · Arquitectura Cloud</p>
       <p class="pitch">
-        Cinco años diseñando pipelines de datos en Azure Databricks y Data Factory, sobre una base
-        de ocho años integrando sistemas Core Bancario AS/400. Diseño pipelines que integran
-        sistemas que no fueron pensados para hablarse, y ahora llevo esa experiencia hacia la
-        arquitectura de soluciones en la nube.
+        Cinco años de experiencia diseñando pipelines end-to-end (Azure Databricks, Data Factory, PySpark) para
+        integración de datos CRM/ERP, como Salesforce y SAP en Derco S.A. Previo a esto, 8 años como Analista
+        Programador en sistemas Core Bancarios AS/400 (RPG/ILE, RPGSQL, DB2 ) para bancos como Security, Itaú CorpBanca
+        — vía Accenture Chile y Softgroup. Esta base técnica en sistemas críticos
+        legacy, combinada con mi experiencia posterior en arquitecturas modernas de datos, me da una perspectiva que
+        permite entender tanto la lógica de los sistemas core bancarios, como las plataformas cloud que hoy los
+        complementan o reemplazan.
+
+
       </p>
       <div class="enlaces">
         <a class="btn primario" href="#proyectos">Ver proyectos</a>
@@ -610,7 +614,8 @@
           <h4>Lenguajes</h4>
           <div class="chips">
             <span class="chip">SQL</span><span class="chip">Python</span>
-            <span class="chip">PySpark</span><span class="chip">RPG/ILE</span>
+            <span class="chip">JavaScript</span><span class="chip">RPG/ILE</span>
+            <span class="chip">Swift</span>
           </div>
         </div>
 
@@ -628,6 +633,14 @@
             <span class="chip">Salesforce</span><span class="chip">SAP</span>
             <span class="chip">SQL Server</span><span class="chip">DB2 / AS400</span>
             <span class="chip">Docker</span><span class="chip">Git</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Prácticas</h4>
+          <div class="chips">
+            <span class="chip">Mínimo privilegio</span><span class="chip">Observabilidad</span>
+            <span class="chip">Infraestructura como código</span><span class="chip">Scrum</span>
           </div>
         </div>
 
@@ -762,152 +775,84 @@
         </div>
 
         <details class="detalle-caso">
-        <summary>Ver caso técnico completo</summary>
-        <div class="cuerpo">
+          <summary>Ver caso técnico completo</summary>
+          <div class="cuerpo">
 
-          <div class="bloque-caso">
-            <h4>La actividad</h4>
-            <p>
-              Construcción y despliegue de una aplicación de comercio electrónico sobre una arquitectura
-              completamente sin servidores. Tres recursos —usuarios, pedidos y productos— expuestos por una
-              puerta de enlace de API, resueltos por funciones independientes y persistidos en una base de
-              datos NoSQL. Un sitio estático alojado en almacenamiento de objetos consume esa API desde el
-              navegador, y toda la actividad queda registrada con métricas y una alarma que notifica por
-              correo al superar su umbral.
-            </p>
-          </div>
-
-          <div class="bloque-caso">
-            <h4>El desafío</h4>
-            <p>
-              El obstáculo no fue construir los servicios sino hacer que los controles de seguridad
-              convivieran con el navegador. Tres problemas distintos —el método de verificación previa
-              exigiendo credenciales, las respuestas de error sin encabezados de origen cruzado, y el
-              alcance de la política de autorización— producían <span class="destacado">exactamente el
-                mismo mensaje genérico de fallo de red</span>. Diagnosticar eso obliga a razonar por
-              eliminación, no por el error.
-            </p>
-          </div>
-
-          <div class="bloque-caso">
-            <h4>La solución</h4>
-            <p>
-              Control de acceso en dos capas independientes: un autorizador que valida la credencial y
-              emite una política, y una clave asociada a un plan de uso que limita el consumo. La primera
-              responde quién eres; la segunda, cuánto puedes pedir. Comprometer una no anula la otra.
-            </p>
-            <p>
-              En la capa de datos, un índice secundario permite consultar los pedidos de un cliente sin
-              recorrer la tabla completa. La diferencia es económica además de técnica: se factura por
-              lo que se lee, no por lo que se devuelve.
-            </p>
-          </div>
-
-          <div class="bloque-caso">
-            <h4>Herramienta técnica utilizada</h4>
-            <p>
-              La arquitectura se apoya en servicios gestionados de AWS. Las funciones están escritas en
-              Python; el cliente del sitio es HTML, CSS y JavaScript sin dependencias externas.
-            </p>
-            <div class="chips">
-              <span class="chip">API Gateway · entrada y control de acceso</span>
-              <span class="chip">AWS Lambda · Python</span>
-              <span class="chip">DynamoDB · índice secundario global</span>
-              <span class="chip">Amazon S3 · sitio estático</span>
-              <span class="chip">CloudWatch · registros y métricas</span>
-              <span class="chip">SNS · notificación de alarma</span>
+            <div class="bloque-caso">
+              <h4>El desafío</h4>
+              <p>
+                El obstáculo no fue construir los servicios sino hacer que los controles de seguridad
+                convivieran con el navegador. Tres problemas distintos —el método de verificación previa
+                exigiendo credenciales, las respuestas de error sin encabezados de origen cruzado, y el
+                alcance de la política de autorización— producían <span class="destacado">exactamente el
+                  mismo mensaje genérico de fallo de red</span>. Diagnosticar eso obliga a razonar por
+                eliminación, no por el error.
+              </p>
             </div>
-          </div>
 
-          <div class="bloque-caso">
-            <h4>Métricas medidas</h4>
-            <div class="metricas">
-              <div class="metrica">
-                <div class="cifra">859 → 39 ms</div>
-                <div class="dato">Tiempo facturado en frío frente a entorno reutilizado. Veintidós veces de diferencia.
+            <div class="bloque-caso">
+              <h4>La solución</h4>
+              <p>
+                Control de acceso en dos capas independientes: un autorizador que valida la credencial y
+                emite una política, y una clave asociada a un plan de uso que limita el consumo. La primera
+                responde quién eres; la segunda, cuánto puedes pedir. Comprometer una no anula la otra.
+              </p>
+              <p>
+                En la capa de datos, un índice secundario permite consultar los pedidos de un cliente sin
+                recorrer la tabla completa. La diferencia es económica además de técnica: se factura por
+                lo que se lee, no por lo que se devuelve.
+              </p>
+            </div>
+
+            <div class="bloque-caso">
+              <h4>Métricas medidas</h4>
+              <div class="metricas">
+                <div class="metrica">
+                  <div class="cifra">859 → 39 ms</div>
+                  <div class="dato">Tiempo facturado en frío frente a entorno reutilizado. Veintidós veces de
+                    diferencia.
+                  </div>
+                </div>
+                <div class="metrica">
+                  <div class="cifra">85 vs 500 ms</div>
+                  <div class="dato">Inicialización del autorizador frente a las funciones que cargan el SDK.</div>
+                </div>
+                <div class="metrica">
+                  <div class="cifra">48 de 60</div>
+                  <div class="dato">Peticiones rechazadas al superar el límite de consumo configurado.</div>
+                </div>
+                <div class="metrica">
+                  <div class="cifra">1 partición</div>
+                  <div class="dato">Lo que lee una consulta sobre el índice, frente a la tabla entera de un recorrido
+                    con
+                    filtro.</div>
                 </div>
               </div>
-              <div class="metrica">
-                <div class="cifra">85 vs 500 ms</div>
-                <div class="dato">Inicialización del autorizador frente a las funciones que cargan el SDK.</div>
-              </div>
-              <div class="metrica">
-                <div class="cifra">48 de 60</div>
-                <div class="dato">Peticiones rechazadas al superar el límite de consumo configurado.</div>
-              </div>
-              <div class="metrica">
-                <div class="cifra">1 partición</div>
-                <div class="dato">Lo que lee una consulta sobre el índice, frente a la tabla entera de un recorrido con
-                  filtro.</div>
-              </div>
             </div>
-          </div>
 
-          <div class="bloque-caso">
-            <h4>Qué aprendí</h4>
-            <p>
-              <span class="destacado">El arranque en frío depende de lo que la función carga, no de lo que hace.</span>
-              Una función que solo importa la biblioteca estándar inicializa en 85 milisegundos; la misma
-              función importando el kit de desarrollo tarda medio segundo. Por eso los clientes se declaran
-              fuera del controlador: se crean una vez y se reutilizan.
-            </p>
-            <p>
-              <span class="destacado">El mismo síntoma puede tener causas opuestas.</span> Una función
-              invocada directamente falla si añade encabezados de origen cruzado, porque la plataforma ya
-              los pone. La misma función tras una puerta de enlace falla si no los añade, porque ahí la
-              plataforma no lo hace.
-            </p>
-            <p>
-              <span class="destacado">En serverless el perímetro es la identidad, no la red.</span> La
-              arquitectura no tiene red virtual ni subredes, y no le hacen falta: ningún servicio empleado
-              vive dentro de una red del cliente.
-            </p>
-          </div>
-
-          <div class="bloque-caso">
-            <h4>Habilidades técnicas aplicadas</h4>
-            <div class="chips">
-              <span class="chip">Diseño de arquitectura serverless</span>
-              <span class="chip">Autorizador propio y políticas de permisos</span>
-              <span class="chip">Control de acceso en capas independientes</span>
-              <span class="chip">Modelado NoSQL e índices secundarios</span>
-              <span class="chip">Expresiones de condición y paginación</span>
-              <span class="chip">Python</span>
-              <span class="chip">JavaScript sin dependencias</span>
-              <span class="chip">Observabilidad: métricas y alarmas</span>
-              <span class="chip">Corrección de vulnerabilidad XSS</span>
-              <span class="chip">Documentación técnica</span>
+            <div class="bloque-caso">
+              <h4>Qué aprendí</h4>
+              <p>
+                <span class="destacado">El arranque en frío depende de lo que la función carga, no de lo que
+                  hace.</span>
+                Una función que solo importa la biblioteca estándar inicializa en 85 milisegundos; la misma
+                función importando el kit de desarrollo tarda medio segundo. Por eso los clientes se declaran
+                fuera del controlador: se crean una vez y se reutilizan.
+              </p>
+              <p>
+                <span class="destacado">El mismo síntoma puede tener causas opuestas.</span> Una función
+                invocada directamente falla si añade encabezados de origen cruzado, porque la plataforma ya
+                los pone. La misma función tras una puerta de enlace falla si no los añade, porque ahí la
+                plataforma no lo hace.
+              </p>
+              <p>
+                <span class="destacado">En serverless el perímetro es la identidad, no la red.</span> La
+                arquitectura no tiene red virtual ni subredes, y no le hacen falta: ningún servicio empleado
+                vive dentro de una red del cliente.
+              </p>
             </div>
-          </div>
 
-          <div class="bloque-caso">
-            <h4>Por qué elegí este proyecto</h4>
-            <p>
-              <span class="destacado">Podría haber elegido un proyecto que saliera bien a la primera.</span>
-              Elegí este precisamente porque no salió bien a la primera, y eso es lo que lo hace
-              demostrable.
-            </p>
-            <p>
-              Es el único que puede evaluarse con datos medidos en lugar de descripciones: cada afirmación
-              de este caso tiene detrás un número obtenido de los registros del propio sistema. El problema
-              central fue de diagnóstico, no de construcción, y esa es la habilidad que se usa a diario en
-              un equipo.
-            </p>
-            <p>
-              Además cubre el ciclo completo —diseño, seguridad, datos, interfaz, observabilidad y costo—,
-              así que permite conversar sobre cualquiera de esas capas en vez de defender una sola
-              dimensión.
-            </p>
-            <p>
-              Durante la revisión final encontré una vulnerabilidad de inyección en la capa de presentación:
-              el nombre de un producto se insertaba como HTML en lugar de como texto. Lo relevante no es la
-              técnica, que es conocida, sino dónde apareció: en un proyecto cuyo eje era la seguridad.
-              <span class="destacado">La atención puesta en el perímetro había dejado desatendida la
-                interfaz.</span> Mantenerlo visible aquí es deliberado.
-            </p>
           </div>
-
-        </div>
         </details>
       </div>
     </div>
