@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arnoldo Parra Villagrán — Ingeniero de Datos y Arquitectura Cloud</title>
+  <meta name="description"
+    content="Ingeniero de Datos con 5 años en pipelines Azure/Databricks, sobre una base de 8 años en sistemas Core Bancario AS/400. En formación en Arquitectura Cloud AWS.">
+  <style>
+    :root {
+      --tinta: #0F172A;
+      --tinta-2: #1E293B;
+      --texto: #1F2937;
+      --gris: #64748B;
+      --gris-c: #94A3B8;
+      --linea: #E2E8F0;
+      --fondo: #FFFFFF;
+      --fondo-alt: #F8FAFC;
+      --acento: #0D9488;
+      --acento-claro: #14B8A6;
+      --acento-fondo: #F0FDFA;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --texto: #E2E8F0;
+        --gris: #94A3B8;
+        --gris-c: #64748B;
+        --linea: #1E293B;
+        --fondo: #0B1220;
+        --fondo-alt: #0F172A;
+        --acento: #2DD4BF;
+        --acento-claro: #5EEAD4;
+        --acento-fondo: #0B2B28;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    a {
+      color: var(--acento);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    /* ============================================================ hero */
+    .hero {
+      background: var(--tinta);
+      color: #F1F5F9;
+      padding: 84px 0 72px;
+    }
+
+    .hero .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--acento-claro);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 14px
+    }
+
+    .hero .titular {
+      font-size: 20px;
+      color: #CBD5E1;
+      font-weight: 400;
+      margin-bottom: 24px
+    }
+
+    .hero .pitch {
+      font-size: 16.5px;
+      color: #94A3B8;
+      max-width: 62ch;
+      margin-bottom: 32px
+    }
+
+    .enlaces {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: all .15s;
+    }
+
+    .btn.primario {
+      background: var(--acento);
+      color: #042F2E
+    }
+
+    .btn.primario:hover {
+      background: var(--acento-claro);
+      text-decoration: none
+    }
+
+    .btn.secundario {
+      border: 1px solid #475569;
+      color: #CBD5E1
+    }
+
+    .btn.secundario:hover {
+      border-color: #94A3B8;
+      text-decoration: none
+    }
+
+    /* ============================================================ secciones */
+    section {
+      padding: 64px 0
+    }
+
+    section.alt {
+      background: var(--fondo-alt)
+    }
+
+    .rotulo {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 29px;
+      font-weight: 700;
+      letter-spacing: -.015em;
+      margin-bottom: 22px
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    p {
+      margin-bottom: 16px;
+      max-width: 70ch;
+      text-align: justify;
+      text-justify: inter-word;
+      /* Justificado SIN partir palabras: el navegador reparte el espacio
+         entre palabras en lugar de cortarlas con guion. */
+      -webkit-hyphens: none;
+      hyphens: none;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    p:last-child {
+      margin-bottom: 0
+    }
+
+    .destacado {
+      color: var(--texto);
+      font-weight: 600
+    }
+
+    /* ============================================================ stack */
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 26px;
+      margin-top: 8px
+    }
+
+    .stack h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--acento);
+      margin-bottom: 10px;
+      letter-spacing: .02em;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      color: var(--gris);
+    }
+
+    /* ============================================================ timeline */
+    .linea-t {
+      border-left: 2px solid var(--linea);
+      padding-left: 26px;
+      margin-left: 6px
+    }
+
+    .hito {
+      position: relative;
+      padding-bottom: 34px
+    }
+
+    .hito:last-child {
+      padding-bottom: 0
+    }
+
+    .hito::before {
+      content: "";
+      position: absolute;
+      left: -33px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--fondo);
+      border: 2px solid var(--acento);
+    }
+
+    .hito .meta {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--gris-c);
+      margin-bottom: 4px
+    }
+
+    .hito .cargo {
+      font-size: 17px;
+      font-weight: 700
+    }
+
+    .hito .empresa {
+      font-size: 14.5px;
+      color: var(--gris);
+      margin-bottom: 8px
+    }
+
+    .hito ul {
+      margin: 0;
+      padding-left: 18px
+    }
+
+    .hito li {
+      font-size: 14.5px;
+      color: var(--texto);
+      margin-bottom: 5px
+    }
+
+    /* ============================================================ proyectos */
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px
+    }
+
+    .tarjeta {
+      border: 1px solid var(--linea);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--fondo);
+      transition: border-color .15s;
+    }
+
+    .tarjeta:hover {
+      border-color: var(--acento)
+    }
+
+    .tarjeta .num {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--acento);
+      margin-bottom: 10px
+    }
+
+    .tarjeta p {
+      font-size: 14.5px;
+      color: var(--gris);
+      margin-bottom: 14px
+    }
+
+    .tarjeta .tec {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .tarjeta .tec span {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: var(--acento-fondo);
+      color: var(--acento);
+      border-radius: 3px;
+    }
+
+    /* ============================================================ caso */
+    .caso {
+      border: 1px solid var(--linea);
+      border-radius: 8px;
+      overflow: hidden
+    }
+
+    .caso .cabeza {
+      background: var(--tinta);
+      color: #F1F5F9;
+      padding: 26px 30px
+    }
+
+    .caso .cabeza .rotulo {
+      color: var(--acento-claro);
+      margin-bottom: 8px
+    }
+
+    .caso .cabeza h3 {
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 6px
+    }
+
+    .caso .cabeza p {
+      color: #94A3B8;
+      font-size: 14.5px;
+      margin: 0
+    }
+
+    .caso .cuerpo {
+      padding: 30px
+    }
+
+    .detalle-caso summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 30px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--acento);
+      border-top: 1px solid var(--linea);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .detalle-caso summary::-webkit-details-marker {
+      display: none
+    }
+
+    .detalle-caso summary::after {
+      content: "↓";
+      font-size: 15px;
+      transition: transform .15s;
+    }
+
+    .detalle-caso[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .detalle-caso summary:hover {
+      background: var(--acento-fondo)
+    }
+
+    .bloque-caso {
+      margin-bottom: 26px
+    }
+
+    .bloque-caso:last-child {
+      margin-bottom: 0
+    }
+
+    .bloque-caso h4 {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 8px;
+    }
+
+    .bloque-caso p {
+      font-size: 15px;
+      margin-bottom: 10px
+    }
+
+    .metricas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 6px
+    }
+
+    .metrica {
+      border-left: 3px solid var(--acento);
+      padding-left: 14px
+    }
+
+    .metrica .cifra {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2
+    }
+
+    .metrica .dato {
+      font-size: 13px;
+      color: var(--gris);
+      margin-top: 3px
+    }
+
+    /* ============================================================ formación */
+    .dos-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px
+    }
+
+    @media(max-width:760px) {
+      .dos-col {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .lista-simple {
+      list-style: none
+    }
+
+    .lista-simple li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--linea);
+      font-size: 14.5px;
+    }
+
+    .lista-simple li:last-child {
+      border-bottom: none
+    }
+
+    .lista-simple .anio {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--gris-c);
+      display: block
+    }
+
+    /* ============================================================ footer */
+    footer {
+      background: var(--tinta);
+      color: #94A3B8;
+      padding: 56px 0 40px
+    }
+
+    footer h2 {
+      color: #fff;
+      margin-bottom: 14px
+    }
+
+    footer p {
+      color: #94A3B8;
+      font-size: 15.5px
+    }
+
+    footer a {
+      color: var(--acento-claro)
+    }
+
+    .contacto {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      font-size: 15px
+    }
+
+    .pie-final {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #1E293B;
+      font-size: 12.5px;
+      color: #64748B;
+    }
+
+    @media(max-width:620px) {
+      .hero {
+        padding: 60px 0 52px
+      }
+
+      .hero h1 {
+        font-size: 33px
+      }
+
+      section {
+        padding: 48px 0
+      }
+
+      h2 {
+        font-size: 24px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================================================== HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Santiago, Chile</p>
+      <h1>Arnoldo Parra Villagrán</h1>
+      <p class="titular">Ingeniero de Datos · Arquitectura Cloud</p>
+      <p class="pitch">
+        Cinco años diseñando pipelines de datos en Azure Databricks y Data Factory, sobre una base
+        de ocho años integrando sistemas Core Bancario AS/400. Diseño pipelines que integran
+        sistemas que no fueron pensados para hablarse, y ahora llevo esa experiencia hacia la
+        arquitectura de soluciones en la nube.
+      </p>
+      <div class="enlaces">
+        <a class="btn primario" href="#proyectos">Ver proyectos</a>
+        <a class="btn secundario" href="https://linkedin.com/in/arnoldo-parra-villagran-5723a034" target="_blank"
+          rel="noopener">LinkedIn</a>
+        <a class="btn secundario" href="https://github.com/aparrav" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================== SOBRE MÍ -->
+  <section>
+    <div class="wrap">
+      <p class="rotulo">Sobre mí</p>
+      <h2>De integrar sistemas a diseñarlos</h2>
+      <p>
+        Empecé en el core bancario, escribiendo procesos batch sobre AS/400 en Accenture. Ahí aprendí
+        algo que sigue siendo cierto: <span class="destacado">los sistemas rara vez fallan en sus componentes,
+          casi siempre en las costuras entre ellos</span>.
+      </p>
+      <p>
+        Después integré subsistemas críticos en tres bancos, y durante cinco años fui ingeniero de datos
+        en Derco, construyendo pipelines que conectaban Salesforce, SAP y la red de concesionarios sobre
+        Azure Databricks y Data Factory. Automaticé procesos mensuales que pasaron de días a horas, y fui
+        referente técnico del equipo.
+      </p>
+      <p>
+        Desde 2024 me especializo en arquitectura cloud sobre AWS. No como cambio de rumbo, sino como
+        continuación: quien ha pasado años resolviendo integraciones entiende por qué una arquitectura
+        se diseña de una manera y no de otra.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================== STACK -->
+  <section class="alt">
+    <div class="wrap">
+      <p class="rotulo">Competencias</p>
+      <h2>Con qué trabajo</h2>
+      <div class="stack">
+
+        <div>
+          <h4>Ingeniería de datos</h4>
+          <div class="chips">
+            <span class="chip">PySpark</span><span class="chip">Databricks</span>
+            <span class="chip">Azure Data Factory</span><span class="chip">SSIS</span>
+            <span class="chip">Alteryx</span><span class="chip">Data Lake Storage</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Arquitectura AWS</h4>
+          <div class="chips">
+            <span class="chip">Lambda</span><span class="chip">API Gateway</span>
+            <span class="chip">DynamoDB</span><span class="chip">S3</span>
+            <span class="chip">ECS · Fargate</span><span class="chip">CloudWatch</span>
+            <span class="chip">CloudTrail</span><span class="chip">IAM</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Lenguajes</h4>
+          <div class="chips">
+            <span class="chip">SQL</span><span class="chip">Python</span>
+            <span class="chip">PySpark</span><span class="chip">RPG/ILE</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Analítica y visualización</h4>
+          <div class="chips">
+            <span class="chip">Tableau</span><span class="chip">Power BI</span>
+            <span class="chip">Modelado de datos</span><span class="chip">Data Quality</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Plataformas e integración</h4>
+          <div class="chips">
+            <span class="chip">Salesforce</span><span class="chip">SAP</span>
+            <span class="chip">SQL Server</span><span class="chip">DB2 / AS400</span>
+            <span class="chip">Docker</span><span class="chip">Git</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== TRAYECTORIA -->
+  <section>
+    <div class="wrap">
+      <p class="rotulo">Trayectoria</p>
+      <h2>Dónde he trabajado</h2>
+
+      <div class="linea-t">
+
+        <div class="hito">
+          <p class="meta">2024 — presente</p>
+          <p class="cargo">Especialización en arquitectura cloud</p>
+          <p class="empresa">Formación y proyectos propios · Santiago</p>
+          <ul>
+            <li>Programa de Arquitecto Cloud AWS, con despliegue de arquitecturas monolíticas, de microservicios y sin
+              servidores.</li>
+            <li>Proyectos personales sobre datos financieros en tiempo real, con integración de APIs REST y WebSocket.
+            </li>
+          </ul>
+        </div>
+
+        <div class="hito">
+          <p class="meta">2019 — 2024</p>
+          <p class="cargo">Ingeniero de Datos</p>
+          <p class="empresa">Derco · Gerencia CRM</p>
+          <ul>
+            <li>Diseñé pipelines de extremo a extremo con PySpark, Databricks y Data Factory, integrando Salesforce, SAP
+              y la red nacional de concesionarios.</li>
+            <li>Automaticé procesos mensuales, reduciendo el tiempo de procesamiento de días a horas.</li>
+            <li>Optimicé procesos diarios para tener los datos disponibles antes de la apertura de operación.</li>
+            <li>Gestioné calidad de datos y reportería de NPS y campañas en Tableau y Power BI.</li>
+            <li>Fui referente técnico del equipo y responsable del onboarding de nuevos integrantes.</li>
+          </ul>
+        </div>
+
+        <div class="hito">
+          <p class="meta">2017 — 2019</p>
+          <p class="cargo">Analista Programador</p>
+          <p class="empresa">Softgroup Servicios Computacionales</p>
+          <ul>
+            <li>Integré sistemas de core bancario en Itaú - CorpBanca.</li>
+            <li>Desarrollé canales de comunicación entre subsistemas de rentabilidad, provisiones y tarjetas de crédito.
+            </li>
+          </ul>
+        </div>
+
+        <div class="hito">
+          <p class="meta">2011 — 2017</p>
+          <p class="cargo">Software Engineering Associate</p>
+          <p class="empresa">Accenture Chile</p>
+          <ul>
+            <li>Desarrollé aplicaciones y procesos batch del core bancario AS/400 para Banco Security.</li>
+            <li>Diseñé mallas de procesos de ingesta que sostenían la operación diaria del banco.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== PROYECTOS -->
+  <section class="alt" id="proyectos">
+    <div class="wrap">
+      <p class="rotulo">Proyectos</p>
+      <h2>Arquitecturas construidas y desplegadas</h2>
+      <p style="margin-bottom:28px">
+        Tres proyectos que forman una progresión: construir, construir sin servidores, y asegurar
+        y auditar lo construido.
+      </p>
+
+      <div class="tarjetas">
+
+        <div class="tarjeta">
+          <p class="num">01</p>
+          <h3>Serverless Inteligente</h3>
+          <p>
+            API REST de comercio electrónico con control de acceso en dos capas independientes.
+            Índice secundario para separar consultas dirigidas de recorridos completos, y
+            observabilidad con alarma verificada.
+          </p>
+          <div class="tec">
+            <span>Lambda</span><span>API Gateway</span><span>DynamoDB</span><span>S3</span><span>CloudWatch</span>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <p class="num">02</p>
+          <h3>Cloud Secure</h3>
+          <p>
+            Controles de seguridad, auditoría y cumplimiento sobre una cuenta de AWS. Registro
+            multirregión con validación de integridad, evaluación continua de configuraciones
+            y detección de cambios de identidad.
+          </p>
+          <div class="tec">
+            <span>CloudTrail</span><span>AWS Config</span><span>CloudWatch</span><span>SNS</span><span>S3</span>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <p class="num">03</p>
+          <h3>MicroPay</h3>
+          <p>
+            Microservicios sobre contenedores, con balanceo de carga y optimización de costos
+            del clúster mediante capacidad puntual y ajuste de tareas mínimas.
+          </p>
+          <div class="tec">
+            <span>ECS</span><span>Fargate</span><span>ALB</span><span>Docker</span><span>CloudWatch</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== CASO DE ESTUDIO -->
+  <section>
+    <div class="wrap">
+      <p class="rotulo">Caso de estudio</p>
+      <h2>Serverless Inteligente, en detalle</h2>
+
+      <div class="caso">
+        <div class="cabeza">
+          <p class="rotulo">Arquitectura sin servidores</p>
+          <h3>Una API de comercio electrónico que escala a cero</h3>
+          <p>Navegador → API Gateway → Lambda → DynamoDB, con observabilidad de extremo a extremo</p>
+        </div>
+
+        <details class="detalle-caso">
+        <summary>Ver caso técnico completo</summary>
+        <div class="cuerpo">
+
+          <div class="bloque-caso">
+            <h4>La actividad</h4>
+            <p>
+              Construcción y despliegue de una aplicación de comercio electrónico sobre una arquitectura
+              completamente sin servidores. Tres recursos —usuarios, pedidos y productos— expuestos por una
+              puerta de enlace de API, resueltos por funciones independientes y persistidos en una base de
+              datos NoSQL. Un sitio estático alojado en almacenamiento de objetos consume esa API desde el
+              navegador, y toda la actividad queda registrada con métricas y una alarma que notifica por
+              correo al superar su umbral.
+            </p>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>El desafío</h4>
+            <p>
+              El obstáculo no fue construir los servicios sino hacer que los controles de seguridad
+              convivieran con el navegador. Tres problemas distintos —el método de verificación previa
+              exigiendo credenciales, las respuestas de error sin encabezados de origen cruzado, y el
+              alcance de la política de autorización— producían <span class="destacado">exactamente el
+                mismo mensaje genérico de fallo de red</span>. Diagnosticar eso obliga a razonar por
+              eliminación, no por el error.
+            </p>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>La solución</h4>
+            <p>
+              Control de acceso en dos capas independientes: un autorizador que valida la credencial y
+              emite una política, y una clave asociada a un plan de uso que limita el consumo. La primera
+              responde quién eres; la segunda, cuánto puedes pedir. Comprometer una no anula la otra.
+            </p>
+            <p>
+              En la capa de datos, un índice secundario permite consultar los pedidos de un cliente sin
+              recorrer la tabla completa. La diferencia es económica además de técnica: se factura por
+              lo que se lee, no por lo que se devuelve.
+            </p>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>Herramienta técnica utilizada</h4>
+            <p>
+              La arquitectura se apoya en servicios gestionados de AWS. Las funciones están escritas en
+              Python; el cliente del sitio es HTML, CSS y JavaScript sin dependencias externas.
+            </p>
+            <div class="chips">
+              <span class="chip">API Gateway · entrada y control de acceso</span>
+              <span class="chip">AWS Lambda · Python</span>
+              <span class="chip">DynamoDB · índice secundario global</span>
+              <span class="chip">Amazon S3 · sitio estático</span>
+              <span class="chip">CloudWatch · registros y métricas</span>
+              <span class="chip">SNS · notificación de alarma</span>
+            </div>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>Métricas medidas</h4>
+            <div class="metricas">
+              <div class="metrica">
+                <div class="cifra">859 → 39 ms</div>
+                <div class="dato">Tiempo facturado en frío frente a entorno reutilizado. Veintidós veces de diferencia.
+                </div>
+              </div>
+              <div class="metrica">
+                <div class="cifra">85 vs 500 ms</div>
+                <div class="dato">Inicialización del autorizador frente a las funciones que cargan el SDK.</div>
+              </div>
+              <div class="metrica">
+                <div class="cifra">48 de 60</div>
+                <div class="dato">Peticiones rechazadas al superar el límite de consumo configurado.</div>
+              </div>
+              <div class="metrica">
+                <div class="cifra">1 partición</div>
+                <div class="dato">Lo que lee una consulta sobre el índice, frente a la tabla entera de un recorrido con
+                  filtro.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>Qué aprendí</h4>
+            <p>
+              <span class="destacado">El arranque en frío depende de lo que la función carga, no de lo que hace.</span>
+              Una función que solo importa la biblioteca estándar inicializa en 85 milisegundos; la misma
+              función importando el kit de desarrollo tarda medio segundo. Por eso los clientes se declaran
+              fuera del controlador: se crean una vez y se reutilizan.
+            </p>
+            <p>
+              <span class="destacado">El mismo síntoma puede tener causas opuestas.</span> Una función
+              invocada directamente falla si añade encabezados de origen cruzado, porque la plataforma ya
+              los pone. La misma función tras una puerta de enlace falla si no los añade, porque ahí la
+              plataforma no lo hace.
+            </p>
+            <p>
+              <span class="destacado">En serverless el perímetro es la identidad, no la red.</span> La
+              arquitectura no tiene red virtual ni subredes, y no le hacen falta: ningún servicio empleado
+              vive dentro de una red del cliente.
+            </p>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>Habilidades técnicas aplicadas</h4>
+            <div class="chips">
+              <span class="chip">Diseño de arquitectura serverless</span>
+              <span class="chip">Autorizador propio y políticas de permisos</span>
+              <span class="chip">Control de acceso en capas independientes</span>
+              <span class="chip">Modelado NoSQL e índices secundarios</span>
+              <span class="chip">Expresiones de condición y paginación</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript sin dependencias</span>
+              <span class="chip">Observabilidad: métricas y alarmas</span>
+              <span class="chip">Corrección de vulnerabilidad XSS</span>
+              <span class="chip">Documentación técnica</span>
+            </div>
+          </div>
+
+          <div class="bloque-caso">
+            <h4>Por qué elegí este proyecto</h4>
+            <p>
+              <span class="destacado">Podría haber elegido un proyecto que saliera bien a la primera.</span>
+              Elegí este precisamente porque no salió bien a la primera, y eso es lo que lo hace
+              demostrable.
+            </p>
+            <p>
+              Es el único que puede evaluarse con datos medidos en lugar de descripciones: cada afirmación
+              de este caso tiene detrás un número obtenido de los registros del propio sistema. El problema
+              central fue de diagnóstico, no de construcción, y esa es la habilidad que se usa a diario en
+              un equipo.
+            </p>
+            <p>
+              Además cubre el ciclo completo —diseño, seguridad, datos, interfaz, observabilidad y costo—,
+              así que permite conversar sobre cualquiera de esas capas en vez de defender una sola
+              dimensión.
+            </p>
+            <p>
+              Durante la revisión final encontré una vulnerabilidad de inyección en la capa de presentación:
+              el nombre de un producto se insertaba como HTML en lugar de como texto. Lo relevante no es la
+              técnica, que es conocida, sino dónde apareció: en un proyecto cuyo eje era la seguridad.
+              <span class="destacado">La atención puesta en el perímetro había dejado desatendida la
+                interfaz.</span> Mantenerlo visible aquí es deliberado.
+            </p>
+          </div>
+
+        </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== FORMACIÓN -->
+  <section class="alt">
+    <div class="wrap">
+      <p class="rotulo">Formación</p>
+      <h2>Estudios y certificaciones</h2>
+
+      <div class="dos-col">
+        <div>
+          <h3 style="margin-bottom:14px">Formación académica</h3>
+          <ul class="lista-simple">
+            <li>
+              <span class="anio">2018</span>
+              Diplomado en Big Data<br>
+              <span style="color:var(--gris)">Pontificia Universidad Católica de Chile</span>
+            </li>
+            <li>
+              <span class="anio">2014</span>
+              Diplomado en Gestión y Evaluación de Proyectos Informáticos<br>
+              <span style="color:var(--gris)">Universidad de Chile</span>
+            </li>
+            <li>
+              <span class="anio">2011</span>
+              Ingeniero Civil en Informática<br>
+              <span style="color:var(--gris)">Universidad del Bío-Bío</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom:14px">Certificaciones e idiomas</h3>
+          <ul class="lista-simple">
+            <li>
+              <span class="anio">2026</span>
+              Arquitecto Cloud AWS<br>
+              <span style="color:var(--gris)">Talento Digital · Alkemy y SOFOFA</span>
+            </li>
+            <li>
+              <span class="anio">Idiomas</span>
+              Español nativo<br>
+              <span style="color:var(--gris)">Inglés técnico intermedio: lectura y documentación</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== CONTACTO -->
+  <footer>
+    <div class="wrap">
+      <p class="rotulo" style="color:var(--acento-claro)">Contacto</p>
+      <h2>Conversemos</h2>
+      <p style="max-width:58ch">
+        Estoy abierto a oportunidades en ingeniería de datos y arquitectura cloud, en Santiago o en
+        modalidad remota. Si algo de lo que viste encaja con lo que buscas, escríbeme.
+      </p>
+
+      <div class="contacto">
+        <a href="mailto:arnoldo.parra@gmail.com">arnoldo.parra@gmail.com</a>
+        <a href="https://linkedin.com/in/arnoldo-parra-villagran-5723a034" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/aparrav" target="_blank" rel="noopener">GitHub</a>
+        <span>Santiago, Chile</span>
+      </div>
+
+      <p class="pie-final">
+        Sitio estático sin dependencias externas. Desplegado sobre almacenamiento de objetos
+        con entrega cifrada.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
